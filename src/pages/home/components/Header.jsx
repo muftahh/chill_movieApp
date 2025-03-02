@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <div
       className="header-background h-14 py-1.5 px-5 text-white flex justify-between text-[10px] items-stretch 
-      md:text-xl md:h-[94px] md:font-lg"
+      md:text-base md:h-[94px] md:font-lg"
     >
       <div className="grid grid-cols-4 self-center">
         <div className="mr-3 md:mr-16">
