@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <div
       className="header-background h-14 py-1.5 px-5 text-white flex justify-between text-[10px] items-stretch 
-      md:text-base md:h-[94px] md:font-lg"
+      md:text-base md:h-[94px] md:font-lg md-py-[25px] md:px-20"
     >
       <div className="grid grid-cols-4 self-center">
         <div className="mr-3 md:mr-16">
@@ -34,9 +34,9 @@ const Header = () => {
         </button>
 
         {dropdownOpen && (
-          <div className="absolute right-0 mt-9 md:mt-20 w-32 bg-white text-black rounded-md shadow-lg overflow-hidden">
+          <div className="absolute right-0 mt-9 md:mt-20 w-32 back header-background text-white rounded-md shadow-lg overflow-hidden">
             <button
-              className="block w-full px-4 py-2 text-left hover:bg-gray-200"
+              className="block w-full px-4 py-2 text-left hover:bg-gray-200 hover:text-black md:text-base md:font-lg"
               onClick={() => navigate("login")}
             >
               Keluar
