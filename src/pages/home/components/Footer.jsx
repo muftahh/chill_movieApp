@@ -1,8 +1,9 @@
 import logo from "../../../assets/logo.png";
+import "./src/style.css";
 
 const Footer = () => {
   return (
-    <div className="header-background text-white text-xs p-5 md:py-10 md:px-20">
+    <div className="header-background text-white text-xs p-5 md:py-10 md:px-20 border-t">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         <div className="pb-5 md:pb-0">
           <img src={logo} className="h-6 md:h-10" />
