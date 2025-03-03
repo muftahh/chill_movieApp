@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ListFilm from "./components/ListFilm";
+import ListWatch from "./components/ListWatch";
 
 // Import Film
 import film1 from "../../assets/poster/film1.png";
@@ -17,6 +18,8 @@ const Home = () => {
   return (
     <>
       <Header />
+
+      <ListWatch />
 
       <ListFilm
         title="Top Rating Film dan Series Hari ini"
