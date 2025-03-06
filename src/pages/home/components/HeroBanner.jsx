@@ -10,7 +10,7 @@ const HeroBanner = () => {
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       </div>
 
-      <div className="relative z-10 flex flex-col justify-center h-full text-white p-5 md:p-10">
+      <div className="relative z-10 flex flex-col justify-center h-full text-white p-5 md:p-20">
         <h1 className="text-lg md:text-5xl font-bold mb-1 md:mb-4">Shuzume</h1>
         <p className="text-xs md:text-lg max-w-2xl leading-snug md:block">
           A modern action adventure road story where a 17-year-old girl named
