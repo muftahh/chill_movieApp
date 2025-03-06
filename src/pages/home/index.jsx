@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ListFilm from "./components/ListFilm";
 import ListWatch from "./components/ListWatch";
+import HeroBanner from "./components/HeroBanner";
 
 // Import Film
 import film1 from "../../assets/poster/film1.png";
@@ -18,6 +19,8 @@ const Home = () => {
   return (
     <>
       <Header />
+
+      <HeroBanner />
 
       <ListWatch />
 
