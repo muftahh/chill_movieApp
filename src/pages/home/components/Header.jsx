@@ -34,7 +34,7 @@ const Header = () => {
         </button>
 
         {dropdownOpen && (
-          <div className="absolute right-0 mt-9 md:mt-20 w-32 back header-background text-white rounded-md shadow-lg overflow-hidden">
+          <div className="absolute right-0 mt-9 md:mt-20 w-32 bg-black text-white rounded-md shadow-lg overflow-hidden z-50">
             <button
               className="block w-full px-4 py-2 text-left hover:bg-gray-200 hover:text-black md:text-base md:font-lg"
               onClick={() => navigate("login")}
