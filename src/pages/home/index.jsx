@@ -1,37 +1,81 @@
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ListFilm from "./components/ListFilm";
 import ListWatch from "./components/ListWatch";
+import Wishlist from "./components/Wishlist";
 import HeroBanner from "./components/HeroBanner";
 
-// Import Film
-import film1 from "../../assets/poster/film1.png";
-import film2 from "../../assets/poster/film2.png";
-import film3 from "../../assets/poster/film3.png";
-import film4 from "../../assets/poster/film4.png";
-import film5 from "../../assets/poster/film5.png";
-
 const Home = () => {
-  const trendingFilms = [film1, film2, film3, film4, film5];
-  const newReleases = [film3, film4, film5, film1, film2];
-  const popularNow = [film5, film1, film2, film3, film4];
+  const [films, setFilms] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
+  const API_URL = "https://jsonfakery.com/movies/random/15";
+
+  useEffect(() => {
+    fetch(API_URL)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data Film:", data);
+        setFilms(data);
+      })
+      .catch((error) => console.error("Error fetching film data:", error));
+  }, []);
+
+  const AddWishlist = (film) => {
+    console.log("nambahfilm");
+    setWishlist((prevWishlist) => {
+      if (!prevWishlist.some((item) => item.id === film.id)) {
+        return [...prevWishlist, film];
+      }
+      return prevWishlist;
+    });
+  };
+
+  const deleteWishlist = (filmId) => {
+    setWishlist((prevWishlist) =>
+      prevWishlist.filter((film) => film.id !== filmId)
+    );
+  };
+
+  const deleteAllWishlist = () => {
+    setWishlist([]);
+  };
 
   return (
     <>
       <Header />
-
       <HeroBanner />
-
       <ListWatch />
 
-      <ListFilm
-        title="Top Rating Film dan Series Hari ini"
-        films={trendingFilms}
-      />
+      {wishlist.length > 0 && (
+        <Wishlist
+          wishlist={wishlist}
+          onRemoveFromWishlist={deleteWishlist}
+          onClearWishlist={deleteAllWishlist}
+        />
+      )}
 
-      <ListFilm title="Film Trending" films={newReleases} />
-
-      <ListFilm title="Rilis Baru" films={popularNow} />
+      {films.length > 0 ? (
+        <>
+          <ListFilm
+            title="Top Rating Film dan Series Hari Ini"
+            films={films.slice(0, 5)}
+            onAddToWishlist={AddWishlist}
+          />
+          <ListFilm
+            title="Film Trending"
+            films={films.slice(5, 10)}
+            onAddToWishlist={AddWishlist}
+          />
+          <ListFilm
+            title="Rilis Baru"
+            films={films.slice(10, 15)}
+            onAddToWishlist={AddWishlist}
+          />
+        </>
+      ) : (
+        <p className="text-center text-white">Loading daftar film...</p>
+      )}
 
       <Footer />
     </>
